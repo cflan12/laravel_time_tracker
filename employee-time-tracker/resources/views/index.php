@@ -16,6 +16,31 @@
 				</div>
 			</div>
 
+			<div class="container-fluid">
+				<div class="row text-center">
+					<btn class="btn btn-primary" ng-click="showUserDialog = true">Show All Employees</btn>
+				</div>
+			</div>
+
+			<div class="row text-center" ng-show="showUserDialog === true">
+				<h4>Employees</h4>
+				<div class="time-entry" ng-repeat="employee in vm.users">
+					<!-- Loop through the users -->
+					<!-- bind user as a reference to the returned object -->
+					<p>{{employee.first_name}} {{employee.last_name}}</p>
+					<button class="btn btn-danger btn-xs" ng-click="vm.deleteUser(id)">Delete</button>
+				</div>
+					<h4>Add New Employee</h4>
+						<form class="navbar-form">
+							<input class="form-control" ng-model="vm.first_name" placeholder="First Name">
+							<input class="form-control" ng-model="vm.last_name" placeholder="Last Name">
+							<input class="form-control" ng-model="vm.email" placeholder="Email">
+							<button class="btn btn-primary" ng-click="vm.logNewUser()">Add Employee</button>
+						</form>
+				<button class="btn btn-danger" ng-click="showUserDialog = false">Close</button> 
+				
+			</div>
+
 			<div class="container-fluid time-entry">
 				<!-- UI Bootstrap timepicker with default parameters -->
 				<div class="timepicker">
@@ -33,7 +58,7 @@
 				<div class="time-entry-comment">
 					<form class="navbar-form">
 						<select name="user" class="form-control" ng-model="vm.timeEntryUser" ng-options="user.first_name + ' ' + user.last_name for user in vm.users">
-							<option value="">-- Select a user --</option>
+							<option value="">-- Select Employee --</option>
 						</select>
 						<input class="form-control" ng-model="vm.comment" placeholder="Enter a comment">
 						<!-- logNewTime method -->

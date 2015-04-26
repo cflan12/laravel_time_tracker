@@ -85,6 +85,7 @@
 					"end_time":vm.clockOut,
 					"comment":vm.comment
 				}).then(function(success) {
+					//refresh listing of time entries
 					getTimeEntries();
 					console.log(success);
 				}, function(error) {
@@ -102,6 +103,31 @@
 
 				//Deselect the user
 				vm.timeEntryUser = "";
+			}
+
+			// Function to log new employee when
+			// add new employee button submits
+			vm.logNewUser = function() {
+
+				//call to saveUser method on user.js
+				user.saveUser({
+					"first_name":vm.first_name,
+					"last_name":vm.last_name,
+					"email":vm.email,
+					"password":"1234"
+				}).then(function(success) {
+					//refresh employee list
+					getUsers();
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+
+				getUsers();
+
+				vm.first_name = "";
+				vm.last_name = "";
+				vm.email = "";
 			}
 
 			vm.updateTimeEntry = function(timeentry) {
@@ -138,6 +164,22 @@
 					console.log(error);
 				});
 			}
+
+			// Specify the user to be deleted and pass vm.users array to
+			// deleteUser method on user service
+			vm.deleteUser = function(user) {
+
+				var id = user.id;
+
+				user.deleteUser(id).then(function(success) {
+					getUsers();
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
 			
 		}
+
+
 })();

@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 
 class UsersController extends Controller {
 
@@ -32,13 +32,21 @@ class UsersController extends Controller {
 	}
 
 	/**
-	 * Store a newly created resource in storage.
-	 *
+	 * Grab data passed from logNewUser() and save
+	 * new employee record
 	 * @return Response
 	 */
 	public function store()
-	{
-		//
+	{	
+		//request all data from form
+		$data = Request::all();
+
+		$user = new User;
+
+		$user->fill($data);
+
+		$user->save();
+
 	}
 
 	/**
@@ -75,14 +83,16 @@ class UsersController extends Controller {
 	}
 
 	/**
-	 * Remove the specified resource from storage.
+	 * Delete User from Angular View data sent
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-		//
+		$user = User::find($id);
+
+		$user->delete();
 	}
 
 }
