@@ -39,7 +39,6 @@
 			// Send delete data from view to 
 			// DELETE request on API controller
 			function deleteUser(id) {
-
 				return User.delete({id:id}).$promise.then(function(success) {
 					console.log(success);
 				}, function(error) {

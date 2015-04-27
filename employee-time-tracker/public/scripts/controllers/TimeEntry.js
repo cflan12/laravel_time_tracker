@@ -155,6 +155,7 @@
 			//deleteTime method on the time service
 			vm.deleteTimeEntry = function(timeentry) {
 
+				//get id number from with object notation
 				var id = timeentry.id;
 
 				time.deleteTime(id).then(function(success) {
@@ -167,9 +168,9 @@
 
 			// Specify the user to be deleted and pass vm.users array to
 			// deleteUser method on user service
-			vm.deleteUser = function(user) {
+			vm.deleteUser = function(users) {
 
-				var id = user.id;
+				var id = users.id;
 
 				user.deleteUser(id).then(function(success) {
 					getUsers();

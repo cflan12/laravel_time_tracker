@@ -99,7 +99,7 @@
 			// Send a DELETE request for a specific time entry
 			function deleteTime(id) {
 				return Time.delete({id:id}).$promise.then(function(success) {
-					console.log(sucess);
+					console.log(success);
 				}, function(error) {
 					console.log(error);
 				});

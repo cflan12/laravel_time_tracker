@@ -28,7 +28,8 @@
 					<!-- Loop through the users -->
 					<!-- bind user as a reference to the returned object -->
 					<p>{{employee.first_name}} {{employee.last_name}}</p>
-					<button class="btn btn-danger btn-xs" ng-click="vm.deleteUser(id)">Delete</button>
+					<!-- employee parameter from ng-repeat -->
+					<button class="btn btn-danger btn-xs" ng-click="vm.deleteUser(employee)">Delete</button>
 				</div>
 					<h4>Add New Employee</h4>
 						<form class="navbar-form">
@@ -96,6 +97,7 @@
 						<div class="row">
 							<div class="col-sm-3">
 								<button class="btn btn-primary btn-xs" ng-click="showEditDialog = true">Edit</button>
+								<!-- time in vm.timeentries passed as parameter -->
 								<button class="btn btn-danger btn-xs" ng-click="vm.deleteTimeEntry(time)">Delete</button>
 							</div>
 						</div>
