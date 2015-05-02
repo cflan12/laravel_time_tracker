@@ -23,12 +23,11 @@ class TimeEntriesController extends Controller {
 		$date = Carbon::today();
 
 		//$time = TimeEntry::with('user')->get();
-		
+
 		$time = TimeEntry::where('start_time', '>=', $date)->get();
 
 		return $time;
-
-		
+	
 	}
 
 	/**
@@ -93,8 +92,6 @@ class TimeEntriesController extends Controller {
 		$data = Request::all();
 
 		$timeentry->fill($data);
-
-		$timeentry->date_time = 
 
 		$timeentry->save();
 	}

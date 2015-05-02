@@ -29,7 +29,21 @@
 					<!-- bind user as a reference to the returned object -->
 					<p>{{employee.first_name}} {{employee.last_name}}</p>
 					<!-- employee parameter from ng-repeat -->
+					<button class="btn btn-primary btn-xs" ng-click="showUpdateDialog = true">Update</button>
 					<button class="btn btn-danger btn-xs" ng-click="vm.deleteUser(employee)">Delete</button>
+
+					<!--Update Dialog -->
+					<div class="row time-entry-edit" ng-show="showUpdateDialog === true">
+						<h4>Update Employee</h4>
+							<form class="navbar-form">
+								<input class="form-control" ng-model="employee.first_name">
+								<input class="form-control" ng-model="employee.last_name">
+								<input class="form-control" ng-model="employee.email">
+								<button class="btn btn-primary" ng-click="vm.updateUser(employee)">Update</button>
+								<button class="btn btn-danger" ng-click="showUpdateDialog = false">Close</button>
+							</form>
+					</div>
+
 				</div>
 					<h4>Add New Employee</h4>
 						<form class="navbar-form">

@@ -46,10 +46,21 @@
 				});
 			}
 
+			// Send update data from view to
+			// UPDATE request on API controller
+			function updateUser(data) {
+				return User.update({id:data.id}, data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
 				getUsers: getUsers,
 				saveUser: saveUser,
-				deleteUser: deleteUser
+				deleteUser: deleteUser,
+				updateUser: updateUser
 			}
 		}
 })();

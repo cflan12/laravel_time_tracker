@@ -79,7 +79,13 @@ class UsersController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$user = User::find($id);
+
+		$data = Request::all();
+
+		$user->fill($data);
+
+		$user->save();
 	}
 
 	/**

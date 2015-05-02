@@ -179,6 +179,30 @@
 					console.log(error);
 				});
 			}
+
+			// Specify use to be updated and pass vm.users array to
+			// updateUser method on user service
+			// Users array from initialized array in controller
+			vm.updateUser = function(users) {
+
+				var updatedUserEntry = {
+					"id":users.id,
+					"first_name":users.first_name,
+					"last_name":users.last_name,
+					"email":users.email
+				}
+
+				// Update the user entry then refresh the list
+				user.updateUser(updatedUserEntry).then(function(success) {
+					getUsers();
+					$scope.updateUserDialog = false;
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+
+			}
+
 			
 		}
 
