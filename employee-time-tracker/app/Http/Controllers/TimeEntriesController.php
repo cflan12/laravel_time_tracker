@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\TimeEntry;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Request;
 
@@ -17,9 +18,17 @@ class TimeEntriesController extends Controller {
 	//Gets time entries and eager loads their associated users
 	public function index()
 	{
-		$time = TimeEntry::with('user')->get();
+		//Current date Carbon object with 0 hh:mm:ss
+		// Refactor to query scope
+		$date = Carbon::today();
+
+		//$time = TimeEntry::with('user')->get();
+		
+		$time = TimeEntry::where('start_time', '>=', $date)->get();
 
 		return $time;
+
+		
 	}
 
 	/**
@@ -84,6 +93,8 @@ class TimeEntriesController extends Controller {
 		$data = Request::all();
 
 		$timeentry->fill($data);
+
+		$timeentry->date_time = 
 
 		$timeentry->save();
 	}
