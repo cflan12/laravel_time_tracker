@@ -38,6 +38,7 @@ Route::get('/user', function()
 	echo " foreach loop: ";
 	echo $carbon;
 	
+	
 	dd($date_now);
 	dd($user->start_time);
 });

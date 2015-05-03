@@ -13,7 +13,7 @@
 		//named function that is passed to controller
 		//time argument is a dependency we are injecting
 		//references time service
-		function TimeEntry(time, user, $scope) {
+		function TimeEntry(time, user, comment, $scope) {
 
 			//vm is our capture variable, View Model
 			var vm = this;
@@ -25,6 +25,8 @@
 
 			vm.users = [];
 
+			vm.comments = [];
+
 			//Initalize the clockIn and clockOut times to the current time
 			vm.clockIn = moment();
 			vm.clockOut = moment();
@@ -35,6 +37,17 @@
 			//Get the users from the DB so we can select
 			//who the time entry belongs to
 			getUsers();
+
+			// Get comments for the DB for user to select
+			getComments();
+
+			function getComments() {
+				comment.getComment().then(function(result) {
+					vm.comments = result;
+				}, function(error) {
+					console.log(error);
+				});
+			}
 
 			function getUsers() {
 				user.getUsers().then(function(result) {
