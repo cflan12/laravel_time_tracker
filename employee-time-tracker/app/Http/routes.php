@@ -46,6 +46,7 @@ Route::group(array('prefix' => 'api'), function()
 {
 	Route::resource('time', 'TimeEntriesController');
 	Route::resource('users', 'UsersController');
+	Route::resource('comments', 'CommentsController');
 });
 
 //Route::get('home', 'HomeController@index');

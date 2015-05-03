@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\TimeEntry;
+use App\Comment;
 
 class DatabaseSeeder extends Seeder {
 
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder {
 		//call the seed classes to run the seeds
 		$this->call('UsersTableSeeder');
 		$this->call('TimeEntriesTableSeeder');
+		$this->call('CommentsTableSeeder');
 	}
 
 }
@@ -52,14 +54,39 @@ class TimeEntriesTableSeeder extends Seeder {
 		DB::table('time_entries')->delete();
 
 		$time_entries = array(
-                ['user_id' => 1, 'start_time' => '2015-02-21T18:56:48Z', 'end_time' => '2015-02-21T20:33:10Z', 'comment' => 'Initial project setup.'],
-                ['user_id' => 2, 'start_time' => '2015-02-27T10:22:42Z','end_time' => '2015-02-27T14:08:10Z','comment' => 'Review of project requirements and notes for getting started.'],
-                ['user_id' => 3, 'start_time' => '2015-03-03T09:55:32Z','end_time' => '2015-03-03T12:07:09Z','comment' => 'Front-end and backend setup.'],
+                ['user_id' => 1, 'start_time' => '2015-02-21 18:56:48', 'end_time' => '2015-02-21 20:33:10', 'comment' => 'Initial project setup.'],
+                ['user_id' => 2, 'start_time' => '2015-02-27 10:22:42','end_time' => '2015-02-27 14:08:10','comment' => 'Review of project requirements and notes for getting started.'],
+                ['user_id' => 3, 'start_time' => '2015-03-03 09:55:32','end_time' => '2015-03-03 12:07:09','comment' => 'Front-end and backend setup.'],
         );
 
         foreach($time_entries as $time_entry)
         {
         	TimeEntry::create($time_entry);
         }
+	}
+}
+
+
+class CommentsTableSeeder extends Seeder {
+
+	public function run()
+	{
+		DB::table('comments')->delete();
+
+		$comments = array(
+			['comment' => 'Clock In'],
+			['comment' => 'Clock Out'],
+			['comment' => 'Vacation'],
+			['comment' => 'Sick'],
+			['comment' => 'Personal'],
+			['comment' => 'Lunch'],
+			['comment' => 'Remote'],
+			['comment' => 'Offline']
+		);
+
+		foreach($comments as $comment)
+		{
+			Comment::create($comment);
+		}
 	}
 }

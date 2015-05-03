@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCarbonDateForTimeEntryTable extends Migration {
+class CreateCommentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,11 @@ class AddCarbonDateForTimeEntryTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('time_entries', function(Blueprint $table)
+		Schema::create('comments', function(Blueprint $table)
 		{
-			$table->dateTime('date_stamp');
+			$table->increments('id');
+			$table->string('comment');
+			$table->timestamps();
 		});
 	}
 
@@ -25,10 +27,7 @@ class AddCarbonDateForTimeEntryTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('time_entries', function(Blueprint $table)
-		{
-			$table->dropColumn('date_stamp');
-		});
+		Schema::drop('comments');
 	}
 
 }

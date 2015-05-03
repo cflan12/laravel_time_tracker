@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class TimeEntry extends Model {
@@ -20,19 +21,14 @@ class TimeEntry extends Model {
 		return $this->belongsTo('App\User');
 	}
 
-	public function setStartTimeAttributes($date)
+	public function setStartTimeAttribute($date)
 	{
 		$this->attributes['start_time'] = Carbon::parse($date);
 	}
 
-	public function setEndTimeAttributes($date)
+	public function setEndTimeAttribute($date)
 	{
 		$this->attributes['end_time'] = Carbon::parse($date);
-	}
-
-	public function setDateStampAttributes($date)
-	{
-		$this->attributes['start_time'] = Carbon::parse($date);
 	}
 
 }
