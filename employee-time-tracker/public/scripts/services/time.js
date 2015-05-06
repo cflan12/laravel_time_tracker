@@ -26,8 +26,6 @@
 			function getTime() {
 				//$promise.then allows us to intercep the results and modify array in real time
 				return Time.query().$promise.then(function(results) {
-					//angular loop to intercept results that are
-					//returned fro our call to the static JSON file
 					angular.forEach(results, function(result) {
 						//Add the loggedTime property which calls
 						// getTimeDiff to give us duration object result

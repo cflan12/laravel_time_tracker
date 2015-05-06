@@ -24,7 +24,7 @@ class TimeEntriesController extends Controller {
 
 		//$time = TimeEntry::with('user')->get();
 
-		$time = TimeEntry::where('start_time', '>=', $date)->get();
+		$time = TimeEntry::where('start_time', '>=', $date)->with('user')->get();
 
 		return $time;
 	

@@ -75,12 +75,9 @@
 						<select name="user" class="form-control" ng-model="vm.timeEntryUser" ng-options="user.first_name + ' ' + user.last_name for user in vm.users">
 							<option value="">-- Select Employee --</option>
 						</select>
-
-						<select name="comment" class="form-control" ng-model="vm.comments" ng-options="comment.comment for comment in vm.comments">
+						<select name="comment" class="form-control" ng-model="vm.timeEntryComment" ng-options="comment.comment for comment in vm.comments">
 							<option value="">-- Select Comment --</option>
 						</select>
-
-						<input class="form-control" ng-model="vm.comment" placeholder="Enter a comment">
 						<!-- logNewTime method -->
 						<button class="btn btn-primary" ng-click="vm.logNewTime()">Log Time</button>
 					</form>

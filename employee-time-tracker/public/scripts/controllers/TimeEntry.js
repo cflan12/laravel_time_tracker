@@ -96,7 +96,7 @@
 					"user_id":vm.timeEntryUser.id,
 					"start_time":vm.clockIn,
 					"end_time":vm.clockOut,
-					"comment":vm.comment
+					"comment":vm.timeEntryComment.comment
 				}).then(function(success) {
 					//refresh listing of time entries
 					getTimeEntries();
