@@ -28,20 +28,22 @@
 				return Time.query().$promise.then(function(results) {
 					angular.forEach(results, function(result) {
 						//Add the loggedTime property which calls
-						// getTimeDiff to give us duration object result
-						//pass in start and end times found in the static data from example JSON
-						result.loggedTime = getTimeDiff(result.start_time, result.end_time);
+						//getTimeDiff to give us duration object result
+						//pass in start and end times found DB
+						//Add logic to call function when user has Clocked In and Clocked Out
+						if(result.comment == 'Clock In' && result.comment == 'Clock Out') {
+							//call getTimeDiff from different result object ids
+							result.loggedTime = getTimeDiff(result.start_time, result.start_time);
+							//result.loggedTime = getTimeDiff(result.start_time, result.end_time);
+						}	
 					});
-
 					return results;
 				}, function(error) {
-					//check for errors
 					console.log(error);
 				});
 			}
 
 			//Use Moment.js to get the duration of the time entry
-			//start and end parameters
 			function getTimeDiff(start, end) {
 				//total time in milliseconds
 				var diff = moment(end).diff(moment(start));

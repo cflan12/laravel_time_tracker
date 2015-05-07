@@ -59,16 +59,16 @@
 			<div class="container-fluid time-entry">
 				<!-- UI Bootstrap timepicker with default parameters -->
 				<div class="timepicker">
-					<span class="timepicker-title label label-primary">Clock In</span>
+					<span class="timepicker-title label label-primary">Time</span>
 					<timepicker ng-model="vm.clockIn" hour-step="1" minute-step="1" show-meridian="true">
 					</timepicker>
 				</div>
 				<!-- UI Bootstrap timepicker with default parameters -->
-				<div class="timepicker">
+				<!-- <div class="timepicker">
 					<span class="timepicker-title label label-primary">Clock Out</span>
 					<timepicker ng-model="vm.clockOut" hour-step="1" minute-step="1" show-meridian="true">
 					</timepicker>
-				</div>
+				</div> -->
 				<!-- using vm as View Model alias from controller as syntax, can use any alias -->
 				<div class="time-entry-comment">
 					<form class="navbar-form">
@@ -94,20 +94,23 @@
 						<div class="col-sm-8">
 							<h4><i class="glyphicon glyphicon-user"></i>
 							{{time.user.first_name}} {{time.user.last_name}}</h4>
-							<p><i class="glyphicon glyphicon-pencil"></i> {{time.comment}}</p>
+							<h4><i class="glyphicon glyphicon-pencil"></i> {{time.comment}}</h4>
+							<h4><span class="label label-primary"> {{time.start_time}}</span></h4>
 						</div>
-
+						
+						<!-- Display for date and time, when calling getTimeDiff
 						<div class="col-sm-4 time-numbers">
 							<h4><i class="glyphicon glyphicon-calendar"></i>
 							{{time.end_time | date:'MM dd, yyyy'}}</h4>
 							<h2>
-							<!-- added logic to display minutues and hours, pluralize hours -->
+							<! added logic to display minutues and hours, pluralize hours >
 								<span class="label label-primary" 
 									ng-show="time.loggedTime.duration._data.hours > 0">{{time.loggedTime.duration._data.hours}} hour<span ng-show="time.loggedTime.duration._data.hours > 1">s</span>
 								</span></h2>
 							<h4><span class="label label-default">
 							{{time.loggedTime.duration._data.minutes}} minutes</span></h4>
-						</div>
+						</div> -->
+						 
 
 						</div>
 						<div class="row">
