@@ -30,18 +30,48 @@
 						//Add the loggedTime property which calls
 						//getTimeDiff to give us duration object result
 						//pass in start and end times found DB
-						//Add logic to call function when user has Clocked In and Clocked Out
-						if(result.comment == 'Clock In' && result.comment == 'Clock Out') {
-							//call getTimeDiff from different result object ids
-							result.loggedTime = getTimeDiff(result.start_time, result.start_time);
+						//Add logic to call function when user has Clocked In and Clocked Out 
+						//add logic for query day
+						var time_objects = [100];
+						var index;
+
+						for(index = 0; index < time_objects.length; ++index) {
+							//format time with moment.js to test same day for for Each
+							moment(result.start_time).format('MMMM Do YYYY');
+							time_objects = [result];
+							console.log(time_objects[index]);
+						}
+						
+						time_objects.forEach(function(duration) {
+							if(time_objects.start_time == time_objects.start_time)
+								if(time_objects.user_id == time_objects.user_id)
+								//testing logic for same id, clock in, clock out
+								var start_time;
+								var end_time;
+
+								start_time = time_objects.start_time;
+								end_time = time_objects.start_time;
+								//results in undefined (local scope)
+								console.log(time_objects.user_id);
+								
+								result.loggedTime = getTimeDiff(start_time, end_time);
+
+							}, function(error) {
+								console.log(error);
+							});
+							
+							//result.loggedTime = getTimeDiff(start_time, end_time);
 							//result.loggedTime = getTimeDiff(result.start_time, result.end_time);
-						}	
+							
 					});
+					//sends data back to TimeEntry controller
 					return results;
 				}, function(error) {
 					console.log(error);
 				});
 			}
+
+
 
 			//Use Moment.js to get the duration of the time entry
 			function getTimeDiff(start, end) {
@@ -50,6 +80,7 @@
 				//object of total time spent on task
 				var duration = moment.duration(diff);
 				//return duration key equal to duration just derived
+				//send duration key back to method for API POST to DB for each day work hours
 				return {
 					duration: duration
 				}
