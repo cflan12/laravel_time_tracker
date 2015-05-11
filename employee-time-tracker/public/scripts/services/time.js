@@ -24,6 +24,10 @@
 			//use ngResource to make a query to the static data and return results
 
 			function getTime() {
+
+				var time_entries = [];
+				var index;
+				var i;
 				//$promise.then allows us to intercep the results and modify array in real time
 				return Time.query().$promise.then(function(results) {
 					angular.forEach(results, function(result) {
@@ -32,39 +36,67 @@
 						//pass in start and end times found DB
 						//Add logic to call function when user has Clocked In and Clocked Out 
 						//add logic for query day
-						var time_objects = [100];
-						var index;
-
-						for(index = 0; index < time_objects.length; ++index) {
-							//format time with moment.js to test same day for for Each
-							moment(result.start_time).format('MMMM Do YYYY');
-							time_objects = [result];
-							console.log(time_objects[index]);
-						}
 						
-						time_objects.forEach(function(duration) {
-							if(time_objects.start_time == time_objects.start_time)
-								if(time_objects.user_id == time_objects.user_id)
-								//testing logic for same id, clock in, clock out
-								var start_time;
-								var end_time;
+						//angular.forEach can submit each element to array instead of for loop
+						//array.push()
+						//Client side current data check
+						//var format = moment(result.start_time).format('MMMM Do YYYY');
+						
 
-								start_time = time_objects.start_time;
-								end_time = time_objects.start_time;
-								//results in undefined (local scope)
-								console.log(time_objects.user_id);
-								
-								result.loggedTime = getTimeDiff(start_time, end_time);
-
-							}, function(error) {
-								console.log(error);
-							});
-							
-							//result.loggedTime = getTimeDiff(start_time, end_time);
-							//result.loggedTime = getTimeDiff(result.start_time, result.end_time);
+						//Insert into array 
+						time_entries.push(result);
+						//console.log(time_entries);
 							
 					});
+
+					//End of angular.forEach loop
 					//sends data back to TimeEntry controller
+					
+					//result.loggedTime = getTimeDiff(start_time, end_time);
+					var shift_length = [];
+					var length = time_entries.length;
+
+					for(index = 0; index < time_entries.length; ++index)
+					{	
+						//return time_entries with user object for user_id
+						var employee = time_entries[index].comment;
+						//console.log(employee);
+						if(employee == 'Clock In' || employee == 'Clock Out') {
+							shift_length.push(time_entries[index]);
+						}
+					}
+					console.log(shift_length.length);
+					for(index = 0; index < shift_length.length; ++index)
+					{
+						var time;
+						var start_time;
+						var end_time;
+						var employee_id;
+						var employee_clockout;
+
+						employee_id = shift_length[index].user.id;
+						start_time = shift_length[index].start_time;
+
+						//check for double counting of clock in and clock out for same user
+						console.log(shift_length[index]);
+	
+							for(i = 1; i < shift_length.length; ++i)
+							{
+								if(shift_length[i].user.id == employee_id);
+								{	
+									console.log(employee_id);
+									employee_clockout = shift_length[i];
+				
+									end_time = employee_clockout.start_time;
+									console.log(end_time);
+
+									//getTimeDiff(start_time, end_time);
+									result.loggedTime = getTimeDiff(start_time, end_time);
+								}
+							}
+							//calculate time difference from time_entries and shift_length
+
+					}
 					return results;
 				}, function(error) {
 					console.log(error);

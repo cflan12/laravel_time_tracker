@@ -19,7 +19,8 @@ class TimeEntriesController extends Controller {
 	public function index()
 	{
 		//Current date Carbon object with 0 hh:mm:ss
-		// Refactor to query scope
+		//Refactor to query scope
+		//Server side current data check
 		$date = Carbon::today();
 
 		//$time = TimeEntry::with('user')->get();
