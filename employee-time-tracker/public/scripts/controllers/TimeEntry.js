@@ -27,6 +27,8 @@
 
 			vm.comments = [];
 
+			vm.duration = [];
+
 			//Initalize the clockIn and clockOut times to the current time
 			vm.clockIn = moment();
 			vm.clockOut = moment();
@@ -60,10 +62,14 @@
 			//fetches the time entries and puts the results
 			//on the vm.timeentries array
 			function getTimeEntries() {
-				time.getTime().then(function(results) {
+				time.getTime().then(function(results, shift_length) {
 					vm.timeentries = results;
-					updateTotalTime(vm.timeentries);
+					vm.duration = shift_length;
+					//updateTotalTime(vm.timeentries);
+					console.log("vm.timeentries:");
 					console.log(vm.timeentries);
+					console.log("vm.duration: ")
+					console.log(vm.duration);
 				}, function(error) {
 					console.log(error);
 				});

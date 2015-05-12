@@ -26,8 +26,7 @@
 			function getTime() {
 
 				var time_entries = [];
-				var index;
-				var i;
+				var index, i, splice;
 				//$promise.then allows us to intercep the results and modify array in real time
 				return Time.query().$promise.then(function(results) {
 					angular.forEach(results, function(result) {
@@ -46,10 +45,11 @@
 						//Insert into array 
 						time_entries.push(result);
 						//console.log(time_entries);
-							
-					});
 
-					//End of angular.forEach loop
+						//appends logTime to object
+						//result.logTime = getTimeDiff(start_time, end_time);
+							
+					}); // angular.forEach closed
 					//sends data back to TimeEntry controller
 					
 					//result.loggedTime = getTimeDiff(start_time, end_time);
@@ -65,39 +65,63 @@
 							shift_length.push(time_entries[index]);
 						}
 					}
+					console.log("time entries length:");
+					console.log(length);
+					console.log("shift_entries length:");
 					console.log(shift_length.length);
 					for(index = 0; index < shift_length.length; ++index)
 					{
 						var time;
-						var start_time;
-						var end_time;
-						var employee_id;
-						var employee_clockout;
+						var start_time, end_time;
+						var employee, employee_id, employee_clockout, loggedTime;
 
+						employee = shift_length[index];
 						employee_id = shift_length[index].user.id;
 						start_time = shift_length[index].start_time;
 
 						//check for double counting of clock in and clock out for same user
+						console.log("shift_length object:");
 						console.log(shift_length[index]);
 	
 							for(i = 1; i < shift_length.length; ++i)
 							{
 								if(shift_length[i].user.id == employee_id);
 								{	
-									console.log(employee_id);
+									//console.log(employee_id);
 									employee_clockout = shift_length[i];
 				
 									end_time = employee_clockout.start_time;
-									console.log(end_time);
+									//console.log(end_time);
 
-									//getTimeDiff(start_time, end_time);
-									result.loggedTime = getTimeDiff(start_time, end_time);
+									
+									loggedTime = getTimeDiff(start_time, end_time);
+
+
+									//returned duration object
+									console.log("duration:");
+									console.log(loggedTime);
+
+									//appends to time entry object, but needs concise first parameter
+									//foreach through time_entries or shift_length
+
+									angular.forEach(shift_length, function(result) {
+
+										result.loggedTime = getTimeDiff(start_time, end_time);
+									});
+
+									//remove shift_length array element after getTimeDiff
+									//to prevent two calls for Clock In and Clock Out elements
+									splice = shift_length.indexOf("employee");
+									shift_length.splice(splice, 1);
+
 								}
 							}
 							//calculate time difference from time_entries and shift_length
-
 					}
+					console.log("shift_length array returned:");
+					console.log(shift_length);
 					return results;
+					return shift_length;
 				}, function(error) {
 					console.log(error);
 				});
