@@ -113,15 +113,19 @@
 									//to prevent two calls for Clock In and Clock Out elements
 									splice = shift_length.indexOf("employee");
 									shift_length.splice(splice, 1);
-
 								}
 							}
 							//calculate time difference from time_entries and shift_length
 					}
+
 					console.log("shift_length array returned:");
 					console.log(shift_length);
-					return results;
-					return shift_length;
+					return {
+						results: results,
+						shift_length: shift_length
+					}
+					//return results;
+					//return shift_length;
 				}, function(error) {
 					console.log(error);
 				});
@@ -156,6 +160,7 @@
 				//reports the next unit up, which is days.
 				//Using the asHours method and rounding down with
 				//Math.floor instead gives us the total hours
+				console.log(timeentries);
 				return {
 					//use asHours method from Moment.js for hours unit
 					//use Math.floor to round down and minutes method

@@ -54,9 +54,9 @@ class TimeEntriesTableSeeder extends Seeder {
 		DB::table('time_entries')->delete();
 
 		$time_entries = array(
-                ['user_id' => 1, 'start_time' => '2015-02-21 18:56:48', 'end_time' => '2015-02-21 20:33:10', 'comment' => 'Initial project setup.'],
-                ['user_id' => 2, 'start_time' => '2015-02-27 10:22:42','end_time' => '2015-02-27 14:08:10','comment' => 'Review of project requirements and notes for getting started.'],
-                ['user_id' => 3, 'start_time' => '2015-03-03 09:55:32','end_time' => '2015-03-03 12:07:09','comment' => 'Front-end and backend setup.'],
+                ['user_id' => 1, 'start_time' => '2015-02-21 18:56:48','comment' => 'Initial project setup.'],
+                ['user_id' => 2, 'start_time' => '2015-02-27 10:22:42','comment' => 'Review of project requirements and notes for getting started.'],
+                ['user_id' => 3, 'start_time' => '2015-03-03 09:55:32','comment' => 'Front-end and backend setup.'],
         );
 
         foreach($time_entries as $time_entry)

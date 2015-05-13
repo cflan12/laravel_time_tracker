@@ -89,7 +89,7 @@
 		<div class="container">
 			<div class="col-sm-8">
 				<!-- using ng.repeat to display time entries -->
-				<div class="well vm" ng-repeat="time in vm.timeentries">
+				<div class="well vm" ng-repeat="time in vm.timeentries.results">
 					<div class="row">
 						<div class="col-sm-8">
 							<h4><i class="glyphicon glyphicon-user"></i>

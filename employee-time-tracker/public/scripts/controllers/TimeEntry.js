@@ -19,7 +19,8 @@
 			var vm = this;
 
 			//array will hold time entry data we grab with ngResource
-			vm.timeentries = [];
+			//vm.timeentries = [];
+			vm.timeentires = {};
 			//object for totalling each time entry
 			vm.totalTime = {};
 
@@ -27,7 +28,7 @@
 
 			vm.comments = [];
 
-			vm.duration = [];
+			
 
 			//Initalize the clockIn and clockOut times to the current time
 			vm.clockIn = moment();
@@ -62,14 +63,17 @@
 			//fetches the time entries and puts the results
 			//on the vm.timeentries array
 			function getTimeEntries() {
-				time.getTime().then(function(results, shift_length) {
+				time.getTime().then(function(results) {
 					vm.timeentries = results;
-					vm.duration = shift_length;
-					//updateTotalTime(vm.timeentries);
-					console.log("vm.timeentries:");
+					updateTotalTime(vm.timeentries.shift_length);
+					console.log("vm.timeentries object:");
 					console.log(vm.timeentries);
-					console.log("vm.duration: ")
-					console.log(vm.duration);
+					console.log("vm.timeentires properties");
+					console.log(vm.timeentries.results);
+					console.log("vm.timeentires duration");
+					console.log(vm.timeentries.shift_length);
+					//console.log("vm.duration: ");
+					//console.log(vm.duration);
 				}, function(error) {
 					console.log(error);
 				});
