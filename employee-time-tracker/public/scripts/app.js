@@ -7,6 +7,7 @@
 	angular
 		.module('timeTracker', [
 			'ngResource',
-			'ui.bootstrap'
+			'ui.bootstrap',
+			'ui.utils'
 			]);
 })();
