@@ -9,12 +9,42 @@
 
 	<body ng-app="timeTracker" ng-controller="TimeEntry as vm">
 
-		<nav class="navbar navbar-default">
+		<!--<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#">Time Tracker</a>
 				</div>
-			</div>
+			</div> -->
+			
+			<!-- New navbar with collapse menu with ui.boostrap -->
+		<nav class="navbar navbar-default">
+  			<div class="container-fluid">
+    	<!-- Brand and toggle get grouped for better mobile display -->
+    			<div class="navbar-header">
+      				<button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+        				<span class="sr-only">Toggle navigation</span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+      				</button>
+      				<a class="navbar-brand" href="#">Time Tracker</a>
+    			</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+    			<div class="collapse navbar-collapse" collapse="isCollapsed">
+      				<ul class="nav navbar-nav navbar-right">
+        				<li><a href="#">Employees</a></li>
+        				<li><a href="#">Status</a></li>
+        				<li><a href="#">Admin</a></li>
+      				</ul>
+    			</div><!-- /.navbar-collapse -->
+  			</div><!-- /.container-fluid -->
+		</nav>
+
+
+
+
+
+
 
 			<div class="container-fluid">
 				<div class="row text-center">
@@ -156,8 +186,8 @@
 			<div class="col-sm-4">
 				<div class="well time-numbers">
 					<div class="user" ng-repeat="user in vm.userStatus | unique:'user.id'">
-					<h1><i class="glyphicon glyphicon-user"></i> User Status</h1>
-					<h1><span class="label label-primary">Employee: {{user.user.first_name}} {{user.user.last_name}}</span></h1>
+					<h1><i class="glyphicon glyphicon-user"></i> {{user.user.first_name}} {{user.user.last_name}}</h1>
+					<!--<h1><span class="label label-primary">Employee: {{user.user.first_name}} {{user.user.last_name}}</span></h1> -->
 					<h3><span class="label label-default">Status: {{user.status}}</span></h3>
 					<!--Add logic for chat -->
 					<h5><span class="label label-default">Chat</span></h5>

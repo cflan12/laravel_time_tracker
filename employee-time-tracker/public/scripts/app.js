@@ -10,4 +10,9 @@
 			'ui.bootstrap',
 			'ui.utils'
 			]);
+
+		//function for bootstrap collapsed menu
+		function NavBarCtrl($scope) {
+			$scope.isCollapsed = true;
+		}
 })();
