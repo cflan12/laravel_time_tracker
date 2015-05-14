@@ -80,6 +80,7 @@ class CommentsTableSeeder extends Seeder {
 			['comment' => 'Sick'],
 			['comment' => 'Personal'],
 			['comment' => 'Lunch'],
+			['comment' => 'Online'],
 			['comment' => 'Remote'],
 			['comment' => 'Offline']
 		);

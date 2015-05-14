@@ -169,6 +169,41 @@
 				}
 			}
 
+			function userStatus(timeentries) {
+				angular.forEach(timeentries, function(result) {
+					if(result.comment != 'Lunch' && result.comment !='Clock Out' && result.comment !='Offline') {
+						result.status = 'Online';
+					} else {
+						result.status = 'Offline';
+					}
+				});	
+					var index;
+					var length = timeentries.length - 1;
+					var activeUsers = [];
+
+					console.log(timeentries);
+					//sort timeentries array by user.id 
+					//var timeentriesSortedId = [];
+					//timeentriesSortedId = timeentriesSortedId.sort(timeentries.user.id);
+					//console.log("sorted array:");
+					//console.log(timeentries_sorted_id);
+
+					for(index = length; index >= 0; --index)
+					{	
+						activeUsers.push(timeentries[index]);
+						//if(timeentries[index] == timeentries[length]) {
+						//	activeUsers.push(timeentries[index]);
+						//}	else {
+						//	(timeentries[index].user.id != timeentries[index + 1].user.id)
+						//	activeUsers.push(timeentries[index]);
+						//}
+					}
+					console.log("get Active Users:");
+					console.log(activeUsers);
+					return activeUsers;
+					
+			}
+
 			//Grab data passed from the view and send
 			//a POST request to the API to save the data
 			function saveTime(data) {
@@ -202,6 +237,7 @@
 				getTime: getTime,
 				getTimeDiff: getTimeDiff,
 				getTotalTime: getTotalTime,
+				userStatus: userStatus,
 				saveTime: saveTime,
 				updateTime: updateTime,
 				deleteTime: deleteTime

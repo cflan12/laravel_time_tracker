@@ -152,7 +152,18 @@
 				</div>
 
 			</div> 
-			
+
+			<div class="col-sm-4">
+				<div class="well time-numbers">
+					<div class="user" ng-repeat="user in vm.userStatus | unique:'user.id'">
+					<h1><i class="glyphicon glyphicon-user"></i> User Status</h1>
+					<h1><span class="label label-primary">Employee: {{user.user.first_name}} {{user.user.last_name}}</span></h1>
+					<h3><span class="label label-default">Status: {{user.status}}</span></h3>
+					<!--Add logic for chat -->
+					<h5><span class="label label-default">Chat</span></h5>
+					</div>
+				</div>
+			</div>
 			<div class="col-sm-4">
 				<div class="well time-numbers">
 					<h1><i class="glyphicon glyphicon-time"></i> Total Time</h1>

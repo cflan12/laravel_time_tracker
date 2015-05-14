@@ -28,6 +28,8 @@
 
 			vm.comments = [];
 
+			vm.userStatus = [];
+
 			
 
 			//Initalize the clockIn and clockOut times to the current time
@@ -66,6 +68,7 @@
 				time.getTime().then(function(results) {
 					vm.timeentries = results;
 					updateTotalTime(vm.timeentries.shift_length);
+					getUserStatus(vm.timeentries.results);
 					console.log("vm.timeentries object:");
 					console.log(vm.timeentries);
 					console.log("vm.timeentires properties");
@@ -87,6 +90,11 @@
 			//through to count the total number of milliseconds. 
 			function updateTotalTime(timeentries) {
 				vm.totalTime = time.getTotalTime(timeentries);
+			}
+
+			function getUserStatus(timeentries) {
+				vm.userStatus = time.userStatus(timeentries);
+				console.log(vm.userStatus);
 			}
 
 			//submits the time entry that will be called
