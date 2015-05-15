@@ -32,6 +32,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
     			<div class="collapse navbar-collapse" collapse="isCollapsed">
       				<ul class="nav navbar-nav navbar-right">
+      					<li><a href="#testRoute">Test</a></li>
         				<li><a href="#">Employees</a></li>
         				<li><a href="#">Status</a></li>
         				<li><a href="#">Admin</a></li>
@@ -39,6 +40,13 @@
     			</div><!-- /.navbar-collapse -->
   			</div><!-- /.container-fluid -->
 		</nav>
+
+		<!--Content injection from routes -->
+		<div class="container">
+			<div class="row">
+				<h1>View injection</h1>
+			<div ng-view></div>
+		</div>
 
 
 
@@ -185,6 +193,7 @@
 
 			<div class="col-sm-4">
 				<div class="well time-numbers">
+					<h1>Employee Status</h1>
 					<div class="user" ng-repeat="user in vm.userStatus | unique:'user.id'">
 					<h1><i class="glyphicon glyphicon-user"></i> {{user.user.first_name}} {{user.user.last_name}}</h1>
 					<!--<h1><span class="label label-primary">Employee: {{user.user.first_name}} {{user.user.last_name}}</span></h1> -->
@@ -210,6 +219,7 @@
     <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="bower_components/moment/moment.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-utils/ui-utils.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
 
     <!-- Application Scripts -->
     <script type="text/javascript" src="scripts/app.js"></script>
