@@ -16,6 +16,11 @@
 		timeTracker.config(function($routeProvider) {
 			$routeProvider
 
+			//.when('/', {
+			//	templateUrl : 'templates/home.html',
+			//	controller : 'TimeEntry'
+			//})
+
 			//route for test page
 			.when('/testRoute', {
 				templateUrl : 'templates/test.html',

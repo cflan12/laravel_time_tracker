@@ -67,16 +67,9 @@
 			function getTimeEntries() {
 				time.getTime().then(function(results) {
 					vm.timeentries = results;
+					//logged time returns duration object to updateTotalTime
 					updateTotalTime(vm.timeentries.shift_length);
 					getUserStatus(vm.timeentries.results);
-					console.log("vm.timeentries object:");
-					console.log(vm.timeentries);
-					console.log("vm.timeentires properties");
-					console.log(vm.timeentries.results);
-					console.log("vm.timeentires duration");
-					console.log(vm.timeentries.shift_length);
-					//console.log("vm.duration: ");
-					//console.log(vm.duration);
 				}, function(error) {
 					console.log(error);
 				});
