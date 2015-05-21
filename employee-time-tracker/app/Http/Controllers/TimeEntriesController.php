@@ -21,7 +21,7 @@ class TimeEntriesController extends Controller {
 		//Current date Carbon object with 0 hh:mm:ss
 		//Refactor to query scope
 		//Server side current data check
-		$date = Carbon::today();
+		$date = Carbon::today('America/Los_Angeles');
 
 		//$time = TimeEntry::with('user')->get();
 

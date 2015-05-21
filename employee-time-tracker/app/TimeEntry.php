@@ -23,7 +23,7 @@ class TimeEntry extends Model {
 
 	public function setStartTimeAttribute($date)
 	{
-		$this->attributes['start_time'] = Carbon::parse($date);
+		$this->attributes['start_time'] = Carbon::parse($date)->timezone('America/Los_Angeles');
 	}
 
 	public function setEndTimeAttribute($date)
