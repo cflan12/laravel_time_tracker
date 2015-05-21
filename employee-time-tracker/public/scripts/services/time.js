@@ -58,6 +58,12 @@
 					var shift_length = [];
 					var length = time_entries.length;
 					var shiftLength = [];
+					var clockIn = [];
+					var clockOut = [];
+					var shiftTime = [];
+					var st, et;
+					var addTime;
+
 					
 					console.log("time entries length");
 					console.log(length);
@@ -68,8 +74,35 @@
 							return shiftLength.push(result);
 					});
 
+					angular.forEach(shiftLength, function(result) {
+						if(result.comment == 'Clock In') {
+							return clockIn.push(result);
+						}else {
+							return clockOut.push(result);
+						}
+					});
+
+					angular.forEach(clockIn, function(clockIn) {
+						angular.forEach(clockOut, function(clockOut) {
+							if(clockIn.user.id == clockOut.user.id) {
+								st = clockIn.start_time;
+								et = clockOut.start_time;
+								addTime = getTimeDiff(st, et);
+								//return duration object
+								return shiftTime.push(addTime);
+							}
+						});
+					});
+
+					/*
+					console.log("duration array");
+					console.log(shiftTime);
 					console.log("shiftLength");
 					console.log(shiftLength);
+					console.log("clockIn");
+					console.log(clockIn);
+					console.log("Clockout");
+					console.log(clockOut);
 
 					for(index = 0; index < time_entries.length; ++index)
 						{	
@@ -135,10 +168,13 @@
 					}
 
 					//console.log("shift_length array returned:");
-					//console.log(shift_length);
+					//console.log(shift_length); */
 					return {
 						results: results,
-						shift_length: shift_length
+						//shift_length: shift_length,
+						shiftTime: shiftTime
+												
+						
 					}
 					//return results;
 					//return shift_length;
@@ -169,7 +205,7 @@
 				//angular loop, adds all milliseconds
 				//return object keys for hours and minutes
 				angular.forEach(timeentries, function(key) {
-					totalMilliseconds += key.loggedTime.duration._milliseconds;
+					totalMilliseconds += key.duration._milliseconds; //key.loggedTime.duration._milliseconds;
 				});
 
 				//After 24 hours, the Moment.js duration object
@@ -187,7 +223,7 @@
 
 			function userStatus(timeentries) {
 				angular.forEach(timeentries, function(result) {
-					if(result.comment != 'Lunch' && result.comment !='Clock Out' && result.comment !='Offline') {
+					if(result.comment != 'Lunch' && result.comment !='Clock Out' && result.comment !='Offline' && result.comment !='Sick') {
 						result.status = 'Online';
 					} else {
 						result.status = 'Offline';

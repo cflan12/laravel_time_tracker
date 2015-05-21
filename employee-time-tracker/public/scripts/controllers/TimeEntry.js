@@ -30,6 +30,7 @@
 
 			vm.userStatus = [];
 
+
 			
 
 			//Initalize the clockIn and clockOut times to the current time
@@ -67,8 +68,10 @@
 			function getTimeEntries() {
 				time.getTime().then(function(results) {
 					vm.timeentries = results;
+					console.log("vm.timeentries:");
+					console.log(vm.timeentries);
 					//logged time returns duration object to updateTotalTime
-					updateTotalTime(vm.timeentries.shift_length);
+					updateTotalTime(vm.timeentries.shiftTime);
 					getUserStatus(vm.timeentries.results);
 				}, function(error) {
 					console.log(error);
