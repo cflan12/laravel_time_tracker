@@ -9,7 +9,8 @@
 								'ngResource',
 								'ui.bootstrap',
 								'ui.utils',
-								'ngRoute'
+								'ngRoute',
+								'ui.router'
 							]);
 
 		//configure our routes

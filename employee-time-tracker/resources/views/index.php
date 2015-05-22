@@ -220,6 +220,7 @@
     <script type="text/javascript" src="bower_components/moment/moment.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="bower_components/angualr-ui-router/release/angular-ui-router.min.js"></script>
 
     <!-- Application Scripts -->
     <script type="text/javascript" src="scripts/app.js"></script>
