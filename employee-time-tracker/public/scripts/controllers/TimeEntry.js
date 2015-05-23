@@ -13,7 +13,7 @@
 		//named function that is passed to controller
 		//time argument is a dependency we are injecting
 		//references time service
-		function TimeEntry(time, user, comment, $scope) {
+		function TimeEntry(time, user, hours, comment, $scope) {
 
 			//vm is our capture variable, View Model
 			var vm = this;
@@ -70,10 +70,15 @@
 					vm.timeentries = results;
 					console.log("vm.timeentries:");
 					console.log(vm.timeentries);
+					console.log("shift time");
+					console.log(vm.timeentries.shiftTime);
+					console.log("end shiftTime");
 					//logged time returns duration object to updateTotalTime
 					if(vm.timeentries.shiftTime != null) {
 						updateTotalTime(vm.timeentries.shiftTime);
+						saveHours(vm.timeentries.shiftTime);
 					}
+					//saveHours(vm.timeentries.shiftTime);
 					getUserStatus(vm.timeentries.results);
 				}, function(error) {
 					console.log(error);
@@ -86,16 +91,43 @@
 			//to equal the result of the call to getTotalTime method from Time services
 			//getTotalTime method from time service takes array of time entries and loops
 			//through to count the total number of milliseconds. 
+
+
 			function updateTotalTime(timeentries) {
 				vm.totalTime = time.getTotalTime(timeentries);
+				console.log("total time object:");
+				console.log(vm.totalTime);
+				console.log("end total time object");
 			}
+			
+			function saveHours(timeentries) {
+				console.log('timeentries save hour');
+				console.log(timeentries);
+				console.log('property of timeentries');
+				console.log(user.id);
+				console.log("timeentries legnth");
+				console.log(timeentries.length);
 
+				angular.forEach(timeentries, function(result) {
+					hours.saveHours({
+					"user_id":result.user.id,
+					"hours":result.duration._milliseconds,
+					"date":result.start_time
+				}).then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+					
+				});
+			} 
+			
 			function getUserStatus(timeentries) {
 				vm.userStatus = time.userStatus(timeentries);
-				console.log('user status');
+				//console.log('user status');
 				console.log(vm.userStatus);
 			}
-
+			
 			//submits the time entry that will be called
 			//when we click the "Log Time" button
 			vm.logNewTime = function() {

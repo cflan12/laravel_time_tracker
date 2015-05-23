@@ -63,4 +63,5 @@
     <script type="text/javascript" src="scripts/services/time.js"></script>
     <script type="text/javascript" src="scripts/services/user.js"></script>
     <script type="text/javascript" src="scripts/services/comment.js"></script>
+    <script type="text/javascript" src="scripts/services/hours.js"></script>
 </html>

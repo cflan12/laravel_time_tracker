@@ -35,7 +35,13 @@ class EmployeeHoursController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$data = Request::all();
+
+		$hours = new EmployeeHour();
+
+		$hours->fill($data);
+
+		$hours->save();
 	}
 
 	/**

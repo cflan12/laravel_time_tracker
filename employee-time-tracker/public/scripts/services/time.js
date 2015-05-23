@@ -51,8 +51,8 @@
 							
 					}); // angular.forEach closed
 					//sends data back to TimeEntry controller
-					console.log("time entries");
-					console.log(time_entries);
+					//console.log("time entries");
+					//console.log(time_entries);
 
 					//result.loggedTime = getTimeDiff(start_time, end_time);
 					var shift_length = [];
@@ -63,10 +63,11 @@
 					var shiftTime = [];
 					var st, et;
 					var addTime;
+					var userTime = [];
 
 					
-					console.log("time entries length");
-					console.log(length);
+					//console.log("time entries length");
+					//console.log(length);
 
 					//array for status and time calculation
 					angular.forEach(time_entries, function(result) {
@@ -88,8 +89,12 @@
 								st = clockIn.start_time;
 								et = clockOut.start_time;
 								addTime = getTimeDiff(st, et);
+
+								
 								//return duration object
-								return shiftTime.push(addTime);
+								shiftTime.push(addTime);
+								//concatenates addTime and clockOut with shiftTime array
+								userTime = angular.extend(addTime, clockOut);
 							}
 						});
 					});
@@ -172,7 +177,8 @@
 					return {
 						results: results,
 						//shift_length: shift_length,
-						shiftTime: shiftTime
+						shiftTime: shiftTime,
+						//userTime: userTime
 												
 						
 					}
