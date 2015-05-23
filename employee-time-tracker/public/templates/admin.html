@@ -1,0 +1,36 @@
+
+
+
+<!--<div class="table-responsive"> -->
+		<div>
+		<table class="table table-hover table-bordered">
+			<thead>
+			<h1 class="text-center">Admin Panel</h1>
+				<tr>
+					<th>Select Pay Period</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Total Hours</th>
+					<td>Comments Log</td>
+					<td>Timestamp Check</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in vm.userStatus">
+					<td>Current Pay Period</td>
+					<td>{{user.user.first_name}}</td>
+					<td>{{user.user.last_name}}</td>
+					<td>Hours</td>
+					<td>Comment Log</td>
+					<td>Timestamps</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<!--</div> -->
+
+		<div class="container">
+			<div class="row">
+				<h1>Active Chat Rooms</h1>
+			</div>
+		</div>

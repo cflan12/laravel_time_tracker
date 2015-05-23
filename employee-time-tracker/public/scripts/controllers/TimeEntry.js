@@ -71,7 +71,9 @@
 					console.log("vm.timeentries:");
 					console.log(vm.timeentries);
 					//logged time returns duration object to updateTotalTime
-					updateTotalTime(vm.timeentries.shiftTime);
+					if(vm.timeentries.shiftTime != null) {
+						updateTotalTime(vm.timeentries.shiftTime);
+					}
 					getUserStatus(vm.timeentries.results);
 				}, function(error) {
 					console.log(error);
@@ -90,6 +92,7 @@
 
 			function getUserStatus(timeentries) {
 				vm.userStatus = time.userStatus(timeentries);
+				console.log('user status');
 				console.log(vm.userStatus);
 			}
 

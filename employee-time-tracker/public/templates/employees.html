@@ -1,0 +1,26 @@
+
+<!--<div class="table-responsive"> -->
+		<div>
+		<table class="table table-hover table-bordered">
+			<thead>
+			<h1 class="text-center">Employees</h1>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Update</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="users in vm.users">
+					<td>{{users.first_name}}</td>
+					<td>{{users.last_name}}</td>
+					<td>{{users.email}}</td>
+					<td><btn class="btn btn-primary">Update</btn>
+					<td><btn class="btn btn-danger">Delete</btn>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<!--</div> -->

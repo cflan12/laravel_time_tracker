@@ -17,35 +17,44 @@
 		timeTracker.config(function($routeProvider) {
 			$routeProvider
 
-			//.when('/', {
-			//	templateUrl : 'templates/home.html',
-			//	controller : 'TimeEntry'
-			//})
-
-			//route for test page
-			.when('/testRoute', {
-				templateUrl : 'templates/test.html',
+			.when('/', {
+				templateUrl : 'templates/home.html',
 				controller : 'TimeEntry'
 			})
 
 			//route for employees
 			.when('/employees', {
 				templateUrl : 'templates/employees.html',
-				controller : 'controllers/TimeEntry'
+				controller : 'TimeEntry'
 			})
 
 			//route for status
 			.when('/status', {
 				templateUrl : 'templates/status.html',
-				controller : 'controllers/TimeEntry'
+				controller : 'TimeEntry'
 			})
 
 			.when('/admin', {
 				templateUrl : 'templates/admin.html',
-				controller : 'controllers/TimeEntry'
+				controller : 'TimeEntry'
 			});
 		});
+		/*
+		//configure nested view with ui-router
+		timeTracker.config(function($routeProvider) {
 
+			$stateProvider
+
+			//nested 
+			.state("name", {
+				templateUrl: ''
+			})
+
+			.state( {
+
+			})
+		});
+		*/
 
 		//function for bootstrap collapsed menu
 		function NavBarCtrl($scope) {
