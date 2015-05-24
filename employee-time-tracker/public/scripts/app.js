@@ -39,22 +39,19 @@
 				//controller : 'TimeEntry'
 			});
 		});
-		/*
+		
 		//configure nested view with ui-router
-		timeTracker.config(function($routeProvider) {
+		timeTracker.config(function($stateProvider) {
 
 			$stateProvider
 
-			//nested 
-			.state("name", {
-				templateUrl: ''
+			//nested shift views
+			.state("shift", {
+				templateUrl: 'templates/partials/admin/shift.html'
 			})
 
-			.state( {
-
-			})
 		});
-		*/
+		
 
 		//function for bootstrap collapsed menu
 		function NavBarCtrl($scope) {

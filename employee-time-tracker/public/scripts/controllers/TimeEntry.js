@@ -30,12 +30,14 @@
 
 			vm.userStatus = [];
 
+			vm.Totaltime = [];
+
 
 			
 
 			//Initalize the clockIn and clockOut times to the current time
-			vm.clockIn = moment();
-			vm.clockOut = moment();
+			vm.clockIn = moment().format();
+			vm.clockOut = moment().format();
 
 			//grab all the time entries saved in the DB
 			getTimeEntries();
@@ -46,6 +48,8 @@
 
 			// Get comments for the DB for user to select
 			getComments();
+
+			getTotalTime();
 
 			function getComments() {
 				comment.getComment().then(function(result) {
@@ -123,19 +127,25 @@
 					"hours":totalHours,
 					"minutes":totalMinutes,
 					"date":date
-				}).then(function(success) {
-					console.log(success);
+					});
+				});
+			} 
+
+			function getTotalTime() {
+				hours.getTotalTime().then(function(result) {
+					vm.Totaltime = result;
+					console.log("getTime");
+					console.log(vm.Totaltime);
 				}, function(error) {
 					console.log(error);
 				});
-					
-				});
-			} 
+			}
+
 			
 			function getUserStatus(timeentries) {
 				vm.userStatus = time.userStatus(timeentries);
-				console.log('Active users, fix function with error call');
-				console.log(vm.userStatus);
+				//console.log('Active users, fix function with error call');
+				//console.log(vm.userStatus);
 			}
 			
 			//submits the time entry that will be called

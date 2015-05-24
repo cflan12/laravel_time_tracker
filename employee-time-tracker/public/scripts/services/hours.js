@@ -15,6 +15,14 @@
 				}
 			});
 
+			function getTotalTime() {
+				return Hours.query().$promise.then(function(results) {
+					return results;
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			function saveHours(data) {
 				return Hours.save(data).$promise.then(function(success) {
 					console.log(success);
@@ -24,6 +32,7 @@
 			}
 
 			return {
+				getTotalTime: getTotalTime,
 				saveHours: saveHours
 			}
 

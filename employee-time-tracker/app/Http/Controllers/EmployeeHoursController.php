@@ -15,7 +15,9 @@ class EmployeeHoursController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$time = EmployeeHour::all();
+
+		return $time;
 	}
 
 	/**
