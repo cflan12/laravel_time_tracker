@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDateToEmployeeHours extends Migration {
+class AddMinutesTableChangeTimeToHours extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,7 @@ class AddDateToEmployeeHours extends Migration {
 	{
 		Schema::table('employee_hours', function(Blueprint $table)
 		{
-			$table->string('date')->after('hours');
+			$table->integer('minutes')->after('hours');
 		});
 	}
 
@@ -27,7 +27,7 @@ class AddDateToEmployeeHours extends Migration {
 	{
 		Schema::table('employee_hours', function(Blueprint $table)
 		{
-			$table->dropColumn('date');
+			$table->dropColumn('minutes');
 		});
 	}
 

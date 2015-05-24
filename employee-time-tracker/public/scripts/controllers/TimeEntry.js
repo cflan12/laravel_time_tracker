@@ -107,10 +107,22 @@
 				console.log(timeentries.length);
 
 				angular.forEach(timeentries, function(result) {
+					var date = moment(result.start_time).format('MMMM Do YYYY');
+					var totalMilliseconds = result.duration._milliseconds;
+					//console.log("totalmilliseconds");
+					//console.log(Totalmilliseconds);
+					var totalHours = Math.floor(moment.duration(totalMilliseconds).asHours());
+					//console.log("totalTime");
+					//console.log(totalTime);
+					var totalMinutes = moment.duration(totalMilliseconds).minutes();
+					//console.log("total minutes");
+					//console.log(totalMinutes);
+
 					hours.saveHours({
 					"user_id":result.user.id,
-					"hours":result.duration._milliseconds,
-					"date":result.start_time
+					"hours":totalHours,
+					"minutes":totalMinutes,
+					"date":date
 				}).then(function(success) {
 					console.log(success);
 				}, function(error) {

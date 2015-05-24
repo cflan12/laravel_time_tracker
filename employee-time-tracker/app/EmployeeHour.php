@@ -7,7 +7,7 @@ class EmployeeHour extends Model {
 
 	protected $table = 'employee_hours';
 
-	protected $fillable = ['user_id', 'hours'];
+	protected $fillable = ['user_id', 'hours', 'minutes', 'date'];
 
 	// Carbon date accessors
 	//protected $dates = ['hours'];
