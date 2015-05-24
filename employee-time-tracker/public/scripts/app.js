@@ -19,24 +19,24 @@
 
 			.when('/', {
 				templateUrl : 'templates/home.html',
-				controller : 'TimeEntry'
+				//controller : 'TimeEntry'
 			})
 
 			//route for employees
 			.when('/employees', {
 				templateUrl : 'templates/employees.html',
-				controller : 'TimeEntry'
+				//controller : 'TimeEntry'
 			})
 
 			//route for status
 			.when('/status', {
 				templateUrl : 'templates/status.html',
-				controller : 'TimeEntry'
+				//controller : 'TimeEntry'
 			})
 
 			.when('/admin', {
 				templateUrl : 'templates/admin.html',
-				controller : 'TimeEntry'
+				//controller : 'TimeEntry'
 			});
 		});
 		/*

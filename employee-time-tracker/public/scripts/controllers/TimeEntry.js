@@ -103,9 +103,7 @@
 			function saveHours(timeentries) {
 				console.log('timeentries save hour');
 				console.log(timeentries);
-				console.log('property of timeentries');
-				console.log(user.id);
-				console.log("timeentries legnth");
+				console.log("For each save hours length");
 				console.log(timeentries.length);
 
 				angular.forEach(timeentries, function(result) {
@@ -124,7 +122,7 @@
 			
 			function getUserStatus(timeentries) {
 				vm.userStatus = time.userStatus(timeentries);
-				//console.log('user status');
+				console.log('Active users, fix function with error call');
 				console.log(vm.userStatus);
 			}
 			

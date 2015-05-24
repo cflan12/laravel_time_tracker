@@ -256,8 +256,7 @@
 						//	activeUsers.push(timeentries[index]);
 						//}
 					}
-					console.log("get Active Users:");
-					console.log(activeUsers);
+					
 					return activeUsers;
 					
 			}
