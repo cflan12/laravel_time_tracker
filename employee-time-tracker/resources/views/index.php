@@ -64,4 +64,7 @@
     <script type="text/javascript" src="scripts/services/user.js"></script>
     <script type="text/javascript" src="scripts/services/comment.js"></script>
     <script type="text/javascript" src="scripts/services/hours.js"></script>
+    <!-- after service calls to intercept $http 
+    <script type="text/javascript" src="scripts/services/request-interceptor.js"></script>
+     -->
 </html>

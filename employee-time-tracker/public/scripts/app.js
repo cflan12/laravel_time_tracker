@@ -51,7 +51,24 @@
 			})
 
 		});
+
+		//$http interceptor
+		timeTracker.factory('myInterceptor', ['$log', function($log) {
+			$log.debug('$log myInterceptor in app module');
+
+			var myInterceptor = {
+				//var interceptor = saveHours(data);
+
+			};
+
+			return myInterceptor;
+
+		}]);
 		
+		//http interceptor for API request
+		timeTracker.config(['$httpProvider', function($httpProvider) {
+			$httpProvider.interceptors.push('myInterceptor');
+		}]);
 
 		//function for bootstrap collapsed menu
 		function NavBarCtrl($scope) {

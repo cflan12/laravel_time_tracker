@@ -13,7 +13,7 @@
 		//named function that is passed to controller
 		//time argument is a dependency we are injecting
 		//references time service
-		function TimeEntry(time, user, hours, comment, $scope) {
+		function TimeEntry(time, user, myInterceptor, hours, comment, $scope) {
 
 			//vm is our capture variable, View Model
 			var vm = this;
