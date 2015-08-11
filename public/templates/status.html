@@ -1,0 +1,30 @@
+
+<!--<div class="table-responsive"> -->
+		<div>
+		<table class="table table-hover table-bordered">
+			<thead>
+			<h1 class="text-center">Employees Online</h1>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Start Chat</th>
+					<th>Join Chat Room</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in vm.userStatus">
+					<td>{{user.user.first_name}}</td>
+					<td>{{user.user.last_name}}</td>
+					<td><btn class="btn btn-primary">Send Message</btn></td>
+					<td><btn class="btn btn-default">View Chat Rooms</btn></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<!--</div> -->
+
+		<div class="container">
+			<div class="row">
+				<h1>Active Chat Rooms</h1>
+			</div>
+		</div>
