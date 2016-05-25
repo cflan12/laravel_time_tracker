@@ -30,7 +30,7 @@
 						//Add the loggedTime property which calls
 						// getTimeDiff to give us duration object result
 						//pass in start and end times found in the static data from example JSON
-						result.loggedTime = getTimeDiff(result.start_time, result.end_time);
+						result.loggedTime = result.start_time//getTimeDiff(result.start_time, result.end_time);
 					});
 
 					return results;

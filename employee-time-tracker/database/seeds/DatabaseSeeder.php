@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder {
 
 		//call the seed classes to run the seeds
 		$this->call('UsersTableSeeder');
-		$this->call('TimeEntriesTableSeeder');
+		//$this->call('TimeEntriesTableSeeder');
 		$this->call('CommentsTableSeeder');
 	}
 
@@ -74,8 +74,8 @@ class CommentsTableSeeder extends Seeder {
 		DB::table('comments')->delete();
 
 		$comments = array(
-			['comment' => 'Clock In'],
-			['comment' => 'Clock Out'],
+			['comment' => 'Clocked In'],
+			['comment' => 'Clocked Out'],
 			['comment' => 'Vacation'],
 			['comment' => 'Sick'],
 			['comment' => 'Personal'],

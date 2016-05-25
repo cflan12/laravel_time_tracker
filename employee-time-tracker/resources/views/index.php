@@ -12,62 +12,22 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Time Tracker</a>
+					<a class="navbar-brand" href="#">Team Status</a>
 				</div>
 			</div>
-
-			<div class="container-fluid">
-				<div class="row text-center">
-					<btn class="btn btn-primary" ng-click="showUserDialog = true">Show All Employees</btn>
-				</div>
-			</div>
-
-			<div class="row text-center" ng-show="showUserDialog === true">
-				<h4>Employees</h4>
-				<div class="time-entry" ng-repeat="employee in vm.users">
-					<!-- Loop through the users -->
-					<!-- bind user as a reference to the returned object -->
-					<p>{{employee.first_name}} {{employee.last_name}}</p>
-					<!-- employee parameter from ng-repeat -->
-					<button class="btn btn-primary btn-xs" ng-click="showUpdateDialog = true">Update</button>
-					<button class="btn btn-danger btn-xs" ng-click="vm.deleteUser(employee)">Delete</button>
-
-					<!--Update Dialog -->
-					<div class="row time-entry-edit" ng-show="showUpdateDialog === true">
-						<h4>Update Employee</h4>
-							<form class="navbar-form">
-								<input class="form-control" ng-model="employee.first_name">
-								<input class="form-control" ng-model="employee.last_name">
-								<input class="form-control" ng-model="employee.email">
-								<button class="btn btn-primary" ng-click="vm.updateUser(employee)">Update</button>
-								<button class="btn btn-danger" ng-click="showUpdateDialog = false">Close</button>
-							</form>
-					</div>
-
-				</div>
-					<h4>Add New Employee</h4>
-						<form class="navbar-form">
-							<input class="form-control" ng-model="vm.first_name" placeholder="First Name">
-							<input class="form-control" ng-model="vm.last_name" placeholder="Last Name">
-							<input class="form-control" ng-model="vm.email" placeholder="Email">
-							<button class="btn btn-primary" ng-click="vm.logNewUser()">Add Employee</button>
-						</form>
-				<button class="btn btn-danger" ng-click="showUserDialog = false">Close</button> 
-				
-			</div>
-
+			
 			<div class="container-fluid time-entry">
 				<!-- UI Bootstrap timepicker with default parameters -->
 				<div class="timepicker">
-					<span class="timepicker-title label label-primary">Clock In</span>
+					<span class="timepicker-title label label-primary">Status</span>
 					<timepicker ng-model="vm.clockIn" hour-step="1" minute-step="1" show-meridian="true">
 					</timepicker>
 				</div>
 				<!-- UI Bootstrap timepicker with default parameters -->
-				<div class="timepicker">
+				<!--<div class="timepicker">
 					<span class="timepicker-title label label-primary">Clock Out</span>
 					<timepicker ng-model="vm.clockOut" hour-step="1" minute-step="1" show-meridian="true">
-					</timepicker>
+					</timepicker> -->
 				</div>
 				<!-- using vm as View Model alias from controller as syntax, can use any alias -->
 				<div class="time-entry-comment">
@@ -97,17 +57,17 @@
 							<p><i class="glyphicon glyphicon-pencil"></i> {{time.comment}}</p>
 						</div>
 
-						<div class="col-sm-4 time-numbers">
+						<!--<div class="col-sm-4 time-numbers">
 							<h4><i class="glyphicon glyphicon-calendar"></i>
 							{{time.end_time | date:'MM dd, yyyy'}}</h4>
 							<h2>
 							<!-- added logic to display minutues and hours, pluralize hours -->
-								<span class="label label-primary" 
+								<!--<span class="label label-primary" 
 									ng-show="time.loggedTime.duration._data.hours > 0">{{time.loggedTime.duration._data.hours}} hour<span ng-show="time.loggedTime.duration._data.hours > 1">s</span>
 								</span></h2>
 							<h4><span class="label label-default">
 							{{time.loggedTime.duration._data.minutes}} minutes</span></h4>
-						</div>
+						</div> -->
 
 						</div>
 						<div class="row">
@@ -150,13 +110,13 @@
 
 			</div> 
 			
-			<div class="col-sm-4">
+			<!--<div class="col-sm-4">
 				<div class="well time-numbers">
 					<h1><i class="glyphicon glyphicon-time"></i> Total Time</h1>
 					<h1><span class="label label-primary">{{vm.totalTime.hours}} hours</span></h1>
 					<h3><span class="label label-default">{{vm.totalTime.minutes}} minutes</span></h3>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</body>
 

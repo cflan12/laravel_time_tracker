@@ -16,6 +16,11 @@ Route::get('/', function()
 	return view('index');
 });
 
+Route::get('/admin', function()
+{
+	return view('admin');
+});
+
 Route::get('/user', function() 
 {
 	$user = \App\TimeEntry::find(12);

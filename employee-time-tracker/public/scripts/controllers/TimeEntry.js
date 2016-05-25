@@ -85,17 +85,17 @@
 
 				//Make sure that the clock-in time isn't
 				//after the clock-out time
-				if(vm.clockOut < vm.clockIn) {
+				/*if(vm.clockOut < vm.clockIn) {
 					alert("You can't clock out before you clockin in");
 					return;
-				}
+				}*/
 
 				//call to the saveTime method on the time service 
 				//to save the new time entry to the database
 				time.saveTime({
 					"user_id":vm.timeEntryUser.id,
 					"start_time":vm.clockIn,
-					"end_time":vm.clockOut,
+					//"end_time":vm.clockOut,
 					"comment":vm.timeEntryComment.comment
 				}).then(function(success) {
 					//refresh listing of time entries
@@ -150,7 +150,7 @@
 					"id":timeentry.id,
 					"user_id":timeentry.user.id,
 					"start_time":timeentry.start_time,
-					"end_time":timeentry.end_time,
+					//"end_time":timeentry.end_time,
 					"comment":timeentry.comment
 				}
 
