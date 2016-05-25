@@ -11,9 +11,10 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Time Tracker</a>
+					<a class="navbar-brand" href="#">Admin</a>
 				</div>
 			</div>
+		</nav>
 
 			<div class="container-fluid">
 				<div class="row text-center">
@@ -54,37 +55,7 @@
 				<button class="btn btn-danger" ng-click="showUserDialog = false">Close</button> 
 				
 			</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		</body>
 
 
 <!-- Application Dependencies -->
