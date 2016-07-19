@@ -13,8 +13,11 @@
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#">Team Status</a>
+					<a class="navbar-brand" href="#">Admin</a>
+					<a class="navbar-brand" href="#">Management</a>
 				</div>
 			</div>
+		</nav>
 			
 			<div class="container-fluid time-entry">
 				<!-- UI Bootstrap timepicker with default parameters -->
@@ -28,7 +31,7 @@
 					<span class="timepicker-title label label-primary">Clock Out</span>
 					<timepicker ng-model="vm.clockOut" hour-step="1" minute-step="1" show-meridian="true">
 					</timepicker> -->
-				</div>
+				
 				<!-- using vm as View Model alias from controller as syntax, can use any alias -->
 				<div class="time-entry-comment">
 					<form class="navbar-form">
@@ -43,7 +46,6 @@
 					</form>
 				</div>
 			</div>
-		</nav>
 		
 	
 		<div class="container">
@@ -55,6 +57,12 @@
 							<h4><i class="glyphicon glyphicon-user"></i>
 							{{time.user.first_name}} {{time.user.last_name}}</h4>
 							<p><i class="glyphicon glyphicon-pencil"></i> {{time.comment}}</p>
+							
+							<!-- Add switch statement for active users -->
+							<p>Chat</p>
+
+							<!-- save as variable names -->
+							<p>{{time.start_time}}</p>
 						</div>
 
 						<!--<div class="col-sm-4 time-numbers">
@@ -69,12 +77,12 @@
 							{{time.loggedTime.duration._data.minutes}} minutes</span></h4>
 						</div> -->
 
-						</div>
+						<!-- Edit for Admin 
 						<div class="row">
 							<div class="col-sm-3">
-								<button class="btn btn-primary btn-xs" ng-click="showEditDialog = true">Edit</button>
+								<button class="btn btn-primary btn-xs" ng-click="showEditDialog = true">Edit</button> -->
 								<!-- time in vm.timeentries passed as parameter -->
-								<button class="btn btn-danger btn-xs" ng-click="vm.deleteTimeEntry(time)">Delete</button>
+							<!-- <button class="btn btn-danger btn-xs" ng-click="vm.deleteTimeEntry(time)">Delete</button>
 							</div>
 						</div>
 
@@ -87,7 +95,7 @@
 								<div class="timepicker">
 									<span class="timepicker-title label label-primary">Clock Out</span><timepicker ng-model="time.end_time" hour-step="1" minute-step="1" show-meridian="true"></timepicker>
 								</div>
-							</div>
+							</div> 
 
 							<div class="col-sm-6">
 								<h5>User</h5>
@@ -103,7 +111,7 @@
 								<div class="edit-controls">
 									<button class="btn btn-primary btn-sm" ng-click="vm.updateTimeEntry(time)">Save</button>
 									<button class="btn btn-danger btn-sm"  ng-click="showEditDialog = false">Close</button>
-								</div>
+								</div> -->
 							</div>
 					</div>
 				</div>

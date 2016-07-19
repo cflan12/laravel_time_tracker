@@ -55,13 +55,13 @@
 
 			//Add up the total time for all of our time entries
 			//takes time entries array
-			function getTotalTime(timeentries) {
+			/* function getTotalTime(timeentries) {
 				var totalMilliseconds = 0;
 				//angular loop, adds all milliseconds
 				//return object keys for hours and minutes
 				angular.forEach(timeentries, function(key) {
 					totalMilliseconds += key.loggedTime.duration._milliseconds;
-				});
+				}); 
 
 				//After 24 hours, the Moment.js duration object
 				//reports the next unit up, which is days.
@@ -73,7 +73,7 @@
 					hours: Math.floor(moment.duration(totalMilliseconds).asHours()),
 					minutes: moment.duration(totalMilliseconds).minutes()
 				}
-			}
+			} */
 
 			//Grab data passed from the view and send
 			//a POST request to the API to save the data
@@ -107,7 +107,7 @@
 			return {
 				getTime: getTime,
 				getTimeDiff: getTimeDiff,
-				getTotalTime: getTotalTime,
+				/*getTotalTime: getTotalTime,*/
 				saveTime: saveTime,
 				updateTime: updateTime,
 				deleteTime: deleteTime
