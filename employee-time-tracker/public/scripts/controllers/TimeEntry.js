@@ -29,13 +29,6 @@
 
 			//Initalize the clockIn and clockOut times to the current time
 			vm.clockIn = moment();
-			vm.clockOut = moment();
-
-			//Caluclate Day Activities
-			/*vm.start = moment().startOf('day');
-			console.log(vm.start);
-			vm.end = moment().endOf('day');
-			console.log(vm.end); */
 
 			//grab all the time entries saved in the DB
 			getTimeEntries();
@@ -68,27 +61,11 @@
 			function getTimeEntries() {
 				time.getTime().then(function(results) {
 					vm.timeentries = results;
-					//updateTotalTime(vm.timeentries);
 					console.log(vm.timeentries);
 				}, function(error) {
 					console.log(error);
 				});
 			}
-
-			//function calculateTime(timeentries) {
-
-			//}
-
-			//Updates the value in the total time box by calling
-			// getTotalTime method on the time service
-			//takes time entries array as argument and updates vm.totalTime object
-			//to equal the result of the call to getTotalTime method from Time services
-			//getTotalTime method from time service takes array of time entries and loops
-			//through to count the total number of milliseconds. 
-
-			/* function updateTotalTime(timeentries) {
-				vm.totalTime = time.getTotalTime(timeentries);
-			} */
 
 			//submits the time entry that will be called
 			//when we click the "Log Time" button

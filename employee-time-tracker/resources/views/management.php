@@ -12,7 +12,9 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Manage</a>
+					<a class="navbar-brand" href="/">Team Status</a>
+					<a class="navbar-brand" href="/admin">Admin</a>
+					<a class="navbar-brand" href="/management">Management</a>
 				</div>
 			</div>
 		</nav>

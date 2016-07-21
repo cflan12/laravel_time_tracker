@@ -11,9 +11,9 @@
 
 			var vm = this;
 
-			vm.activeUsers = {};
+			vm.activeUsers = [];
 
-			vm.activeComments = {};
+			vm.activeComments = [];
 
 			//calculate daily hours
 			vm.start = moment().startOf('day');
@@ -21,20 +21,11 @@
 			vm.end = moment().endOf('day');
 			console.log(vm.end);
 
-			//function callstack
-
-			calculateHours();
-
-			console.log('active Users');
-			console.log(vm.activeUsers);
-			console.log('active Comments');
-			console.log(vm.activeComments);
-
-			function calculateHours() {
+			/*function calculateHours() {
 
 				//get active daily users
 				user.getUsers().then(function(result) {
-					vm.activeUsers = results;
+					vm.activeUsers = result;
 				}, function(error) {
 					console.log(error);
 				});
@@ -42,6 +33,35 @@
 				//get active daily comments
 				comment.getComment().then(function(result) {
 					vm.activeComments = result;
+				}, function(error) {
+					console.log(error);
+				});
+			} 
+
+			calculateHours(); */
+
+			getUsers();
+
+			getComments();
+
+			console.log('active Users');
+			console.log(vm.activeUsers);
+			console.log('active Comments');
+			console.log(vm.activeComments);
+
+			function getComments() {
+				comment.getComment().then(function(result) {
+					console.log(result);
+					vm.activeComments = result;
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
+			function getUsers() {
+				user.getUsers().then(function(result) {
+					console.log(result);
+					vm.activeUsers = result;
 				}, function(error) {
 					console.log(error);
 				});

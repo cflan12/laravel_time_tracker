@@ -51,7 +51,7 @@
 				return {
 					duration: duration
 				}
-			}
+			} 
 
 			//Add up the total time for all of our time entries
 			//takes time entries array
